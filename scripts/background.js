@@ -1,6 +1,6 @@
 async function getApiKey() {
   try {
-    const response = await fetch("variables.json");
+    const response = await fetch("./data/variables.json");
     if (response.ok) {
       const variables = await response.json();
       const unsplashAccessKey = variables["allApis"].accessKey;
