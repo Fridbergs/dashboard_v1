@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="input.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Backgrunden som vara flexibel id* math.random för att slumpa backgrund-->
+    <nav>
+      <!-- Date objectet i JS -->
+      <div class="info-div" id="infoDiv">
+        <div class="time" id="timeDiv"></div>
+        <div class="date" id="dateDiv"></div>
+      </div>
+    </nav>
+    <main>
+      <section class="content-section" id="contentSection">
+        <!-- Måste vara en H1 som användaren kan avnända -->
+        <h1>Fridbergs Dashboard</h1>
+        <section class="card-section" id="cardSection">
+          <!-- Quick links card -->
+          <!-- Använd MAP för att lägga till - behövs API -->
+          <article class="card quick-links" id="quickLinksArticle">
+            <h3>Quick Links</h3>
+            <!--  Visa den sparade URLen i en p-tagg -->
+            <div class="quick-card-div" id="quickCardDiv"></div>
+            <div class="quick-add-div" id="quickCardDiv">
+              <!-- Modal som gör det möjligt för användare att lägga till snabblänkar-->
+              <div id="myModal" class="modal">
+                <!-- Modalens innehåll - url -->
+                <div class="modal-content">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <label for="urlInput">Enter URL:</label>
+                  <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://example.com"
+                  />
+                  <button onclick="insertURL()">
+                    Lägg till snabblänk till dashboard
+                  </button>
+                </div>
+              </div>
+              <!-- Ruta för att lägga till URL -->
+              <button class="add-btn" id="addButton" onclick="openModal()">
+                Lägg till snabblänk
+              </button>
+            </div>
+          </article>
+
+          <!-- Weather forecast card -->
+          <!--  google geolocation api - ska ligga i localstorage -->
+          <!-- Extra utmaning, användaren ska kunna söka efter  -->
+          <article class="card weather-article" id="weatherArticle">
+            <h3>Weather Forecast</h3>
+
+            <div class="quick-card-div weather-div-today" id="quickCardDiv">
+              Today
+            </div>
+            <div class="quick-card-div weather-div-tomorrow" id="quickCardDiv">
+              Tomorrow
+            </div>
+            <div
+              class="quick-card-div weather-div-day-after-tomorrow"
+              id="quickCardDiv"
+            >
+              Day after next
+            </div>
+          </article>
+          <!-- Calendar card -->
+          <article class="card latest-Score" id="calendarArticle">
+            <h3>Aktier</h3>
+            <div class="quick-card-div calendar-div" id="quickCardDiv">
+              Todays Event
+            </div>
+          </article>
+          <!-- Notes card -->
+          <!-- texten ska sparas i localstorage -->
+          <article class="card notes-area" id="notesArticle">
+            <h3>Notes</h3>
+            <div class="quick-card-div notes-div" id="quickCardDiv"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <button class="generate-background" id="generateBackground">
+        Generera ny bakgrund
+      </button>
+    </footer>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/quicklinks.js"></script>
+    <script src="scripts/forecast.js"></script>
+    <script src="scripts/aktier.js"></script>
+    <script src="scripts/notes.js"></script>
+  </body>
+</html>

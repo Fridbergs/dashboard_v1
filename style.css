@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+body {
+  margin: 0;
+  width: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  opacity: 100%;
+}
+
+main {
+  height: 810px;
+}
+.info-div {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  background-color: rgb(176, 169, 169);
+  opacity: 100%;
+  width: 500px;
+  height: 5rem;
+  border: 2px solid;
+  border-radius: 15px;
+}
+
+.time,
+.date > p {
+  display: flex;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+  font-size: xx-large;
+  padding: 10px 10px 10px 10px;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+}
+
+h1 {
+  color: brown;
+  font-weight: 900;
+  font-size: 4rem;
+}
+
+.card-section {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 2rem;
+}
+.card {
+  text-align: center;
+  height: auto;
+  width: 21%;
+  max-width: 250px;
+  border: 2px solid;
+  border-radius: 15px;
+  background-color: rgb(176, 169, 169);
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
+
+.quick-card-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+  font-size: small;
+  border: 2px solid;
+  border-radius: 10px;
+  height: 2rem;
+  margin: 5px 10px 5px 5px;
+}
+
+.add-btn {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  width: fit-content;
+  padding: 10px;
+  background-color: aliceblue;
+  font-size: small;
+  border: 2px solid;
+  border-radius: 10px;
+  height: 2rem;
+  margin: 5px 10px 5px 5px;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+  height: 10dvh;
+}
+.generate-background {
+  padding: 15px 15px;
+  border-radius: 15px;
+  width: 15rem;
+  background-color: bisque;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
