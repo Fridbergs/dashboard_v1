@@ -130,8 +130,10 @@ main {
   margin-bottom: 25px;
 }
 
-.card-stocks {
-  text-align: center;
+.card-electricity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: auto;
   width: 50%;
   max-width: 600px;
@@ -198,15 +200,16 @@ main {
   transform: rotate(45deg);
 }
 
-/* Stocks section */
+/* Electricity section */
 
-.stocks-header {
+.electricity-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.add-stock {
+.add-electricity {
   display: flex;
   font-size: xx-large;
   margin-left: 10px;
@@ -215,7 +218,7 @@ main {
   height: auto;
   transition: transform 0.5s ease;
 }
-.add-stock:hover {
+.add-electricity:hover {
   transform: rotate(45deg);
 }
 
