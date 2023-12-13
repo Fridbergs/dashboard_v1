@@ -10,18 +10,22 @@ function createNote() {
 
   // Skapa en ny textarea
   const newTextarea = document.createElement("textarea");
-  newTextarea.placeholder = "";
+  newTextarea.placeholder = " ";
+
+  // Generera ett slumpmässigt ID för textarea
+  const textareaId = randomNoteId();
+  newTextarea.id = `noteTextarea_${textareaId}`;
 
   // Lägg till händelselyssnare för att spara i local storage när du klickar utanför textarea
   newTextarea.addEventListener("blur", function () {
-    saveNoteToLocalStorage(newTextarea.value);
+    saveNoteToLocalStorage(textareaId, newTextarea.value);
   });
 
   // Skapa en "Delete Note" knapp
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "X";
+  deleteButton.textContent = " ";
   deleteButton.addEventListener("click", function () {
-    deleteNote(newNote);
+    deleteNote(newNote, textareaId);
   });
 
   // Lägg till textarea och "Delete Note" knapp till div
@@ -35,17 +39,12 @@ function createNote() {
   newTextarea.focus();
 }
 
-// Funktion för att ta bort en anteckning från DOM
-function deleteNote(noteDiv) {
-  const noteContent = noteDiv.querySelector("textarea").value;
-
+// Funktion för att ta bort en anteckning
+function deleteNote(noteDiv, textareaId) {
   // Ta bort anteckningen från local storage
   const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-  const noteIndex = savedNotes.indexOf(noteContent);
-  if (noteIndex !== -1) {
-    savedNotes.splice(noteIndex, 1);
-    localStorage.setItem("savedNotes", JSON.stringify(savedNotes));
-  }
+  const updatedNotes = savedNotes.filter((note) => note.id !== textareaId);
+  localStorage.setItem("savedNotes", JSON.stringify(updatedNotes));
 
   // Ta bort anteckningen från DOM
   noteDiv.remove();
@@ -56,34 +55,45 @@ function loadNotes() {
   const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
 
   // Loop through saved notes and create divs with textareas
-  for (const noteContent of savedNotes) {
-    createNoteDiv(noteContent);
+  for (const note of savedNotes) {
+    createNoteDiv(note.id, note.content);
   }
 }
 
 // Funktion för att spara en anteckning i local storage
-function saveNoteToLocalStorage(noteContent) {
+function saveNoteToLocalStorage(textareaId, noteContent) {
+  // Hämta befintliga anteckningar från local storage
   const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-  savedNotes.push(noteContent);
+
+  // Lägg till den nya anteckningen till arrayen
+  savedNotes.push({ id: textareaId, content: noteContent });
+
+  // Spara hela arrayen till local storage
   localStorage.setItem("savedNotes", JSON.stringify(savedNotes));
 }
 
 // Funktion för att skapa en div med en textarea och en "Delete Note" knapp
-function createNoteDiv(noteContent) {
+function createNoteDiv(textareaId, noteContent) {
   const newNote = document.createElement("div");
   newNote.classList.add("createdDiv");
 
   const newTextarea = document.createElement("textarea");
+  newTextarea.id = `noteTextarea_${textareaId}`;
   newTextarea.value = noteContent;
 
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete Note";
+  deleteButton.textContent = "Delete";
   deleteButton.addEventListener("click", function () {
-    deleteNote(newNote);
+    deleteNote(newNote, textareaId);
   });
 
   newNote.appendChild(newTextarea);
   newNote.appendChild(deleteButton);
 
   document.getElementById("allNotes").appendChild(newNote);
+}
+
+// Funktion för att generera ett slumpmässigt ID för anteckningen
+function randomNoteId() {
+  return Math.floor(Math.random() * 1000 * (Math.random() * 5000));
 }

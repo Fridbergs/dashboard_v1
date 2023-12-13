@@ -6,6 +6,10 @@
 body {
   margin: 0;
   width: auto;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 nav {
@@ -17,7 +21,14 @@ nav {
 }
 
 main {
-  height: 810px;
+  max-height: auto;
+  width: 80%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid;
+  gap: 25px;
 }
 
 /* Date and time section */
@@ -71,17 +82,23 @@ main {
   text-decoration: none;
 }
 
-.card-section {
+/* Section for Quicklinks & Weather forecase */
+
+.quick-links_weather_forecast-section {
   display: flex;
-  width: 100%;
+  flex-direction: row;
   justify-content: center;
-  gap: 2rem;
+  width: 60%;
+  gap: 25px;
 }
-.card {
+
+.card-quick-links {
   text-align: center;
   height: auto;
-  width: 21%;
-  max-width: 350px;
+  width: 60%;
+  max-width: 600px;
+  min-height: 400px;
+  max-height: 400px;
   border: 2px solid;
   border-radius: 15px;
   color: black;
@@ -89,15 +106,56 @@ main {
   font-weight: 800;
 }
 
-.quick-card-div {
+.card-weather-article {
+  text-align: center;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+  min-height: 400px;
+  max-height: 400px;
+  border: 2px solid;
+  border-radius: 15px;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
+
+/* Section for Notes and Stocks */
+.stocks_notes-section {
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  background-color: aliceblue;
-  font-size: small;
-  border-radius: 10px;
-  height: 2rem;
-  margin: 5px 10px 5px 5px;
+  width: 60%;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.card-stocks {
+  text-align: center;
+  height: auto;
+  width: 50%;
+  max-width: 600px;
+  min-height: 400px;
+  max-height: 400px;
+  border: 2px solid;
+  border-radius: 15px;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
+
+.card-expand {
+  text-align: center;
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+  min-height: 400px;
+  max-height: auto;
+  border: 2px solid;
+  border-radius: 15px;
+  color: black;
+  font-size: large;
+  font-weight: 800;
 }
 
 /* Quick link section */
@@ -141,6 +199,7 @@ main {
 }
 
 /* Stocks section */
+
 .stocks-header {
   display: flex;
   justify-content: center;
@@ -179,9 +238,30 @@ main {
 .add-note:hover {
   transform: rotate(45deg);
 }
-
-#createdDiv {
-  background-color: blue;
+.all-notes {
+  display: flex;
+  flex-direction: column;
+}
+.all-notes,
+button {
+  margin: 10px 0px;
+}
+.createdDiv {
+}
+textarea {
+  background-color: rgb(230, 236, 236);
+  width: 90%;
+  max-width: 90%;
+  height: 80px;
+  max-height: 150px;
+  border: none;
+  outline: auto;
+  background-color: bisque;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  overflow: auto;
 }
 
 /*  Footer Section */
