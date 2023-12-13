@@ -81,7 +81,7 @@ main {
   text-align: center;
   height: auto;
   width: 21%;
-  max-width: 250px;
+  max-width: 350px;
   border: 2px solid;
   border-radius: 15px;
   color: black;
@@ -100,13 +100,14 @@ main {
   margin: 5px 10px 5px 5px;
 }
 
+/* Quick link section */
 .quick-link-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.add-btn {
+.add-site {
   display: flex;
   font-size: xx-large;
   margin-left: 10px;
@@ -115,10 +116,75 @@ main {
   height: auto;
   transition: transform 0.5s ease;
 }
-.add-btn:hover {
+.add-site:hover {
   transform: rotate(45deg);
 }
 
+/* Weather forecast section */
+.weather-forecast-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-location {
+  display: flex;
+  font-size: xx-large;
+  margin-left: 10px;
+  cursor: pointer;
+  width: 1em;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.add-location:hover {
+  transform: rotate(45deg);
+}
+
+/* Stocks section */
+.stocks-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-stock {
+  display: flex;
+  font-size: xx-large;
+  margin-left: 10px;
+  cursor: pointer;
+  width: 1em;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.add-stock:hover {
+  transform: rotate(45deg);
+}
+
+/* Notes section */
+.notes-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-note {
+  display: flex;
+  font-size: xx-large;
+  margin-left: 10px;
+  cursor: pointer;
+  width: 1em;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.add-note:hover {
+  transform: rotate(45deg);
+}
+
+#createdDiv {
+  background-color: blue;
+}
+
+/*  Footer Section */
 footer {
   display: flex;
   flex-direction: column;

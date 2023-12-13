@@ -1,74 +1,63 @@
-//Skapa en variable med objectet Date
-const currentDate = new Date();
+async function getApiKey() {
+  try {
+    //Använder fetch för att hämta data från variables.json
+    const response = await fetch("variables.json");
 
-//Array med månader
-const months = [
-  "januari",
-  "februari",
-  "mars",
-  "april",
-  "maj",
-  "juni",
-  "juli",
-  "augusti",
-  "september",
-  "oktober",
-  "november",
-  "december",
-];
-
-//Hämtar månader från objektet Date
-let year = currentDate.getFullYear();
-
-//Hämtar månader från objektet Date
-let month = months[currentDate.getMonth()];
-
-//Hämtar dag från objektet Date
-let day = currentDate.getDate();
-
-//Hämtar timmar från objektet Date
-let hours = currentDate.getHours();
-//Hämtar minuter från objektet Date
-let minutes = currentDate.getMinutes();
-
-//Sammanfogar timmar och minuter
-let time = `${hours}:${minutes}`;
-
-//Sammanfogar månad och dag
-let date = `${day} ${month} ${year} `;
-
-function appendTime() {
-  //Skapar Kontakt med Time Div
-  let timeDiv = document.getElementById("timeDiv");
-  let timeInsert = document.createElement("p");
-  timeInsert.textContent = time.toLocaleString();
-  timeDiv.appendChild(timeInsert);
+    //Kontrollerar om förfrågan var framgångsrik - Har vi kontakt med variables.json?
+    if (response.ok) {
+      //Konverterar datan i variables.json till json
+      const variables = await response.json();
+      const weatherApi = variables["allApis"].weatherApi;
+    } else {
+      console.log(`HTTP error message: ${response.status}`);
+    }
+  } catch (error) {
+    console.error("Linus Error fetching API key:", error);
+  }
 }
 
-function appendDate() {
-  //Skapar Kontakt med Time Div
-  let dateDiv = document.getElementById("dateDiv");
-  let dateInsert = document.createElement("p");
-  dateInsert.textContent = `${date}`;
-  dateDiv.appendChild(dateInsert);
+//Hämtar användarens location direkt när window is loaded
+window.addEventListener("load", getLocation);
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
 }
 
-appendTime();
-appendDate();
+// This function is the success callback for getCurrentPosition.
+function showPosition(browserlocation) {
+  // Extract latitude and longitude from the position object.
+  var lat = browserlocation.coords.latitude;
+  var long = browserlocation.coords.longitude;
 
-//Uppdaterar klockan
-
-function updateTime() {
-  const currentTime = new Date();
-  const options = { hour: "numeric", minute: "numeric" };
-  const currentTimeString = currentTime.toLocaleTimeString(undefined, options);
-
-  // Update the DOM element with the current time
-  document.getElementById("timeDiv").textContent = currentTimeString;
+  // Display an alert with the user's latitude and longitude.
+  console.log(
+    "Latitude: " +
+      lat +
+      "\nLongitude: " +
+      long +
+      "\nDessa koordinatoer används för att se vädret där du befinner dig"
+  );
 }
 
-//Uppdaterar klockan varje
-setInterval(updateTime, 1000);
-
-// Initial update to display the current time immediately
-updateTime();
+// Denna function tar hand om eventuella fel - förser användaren med felmeddelanden.
+function showError(error) {
+  // Detta kodblock hanterar felmeddelanden.
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      alert("Användaren vägrade dela med sig av sin plats");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      alert("Platsdelning är inte tillgänglig.");
+      break;
+    case error.TIMEOUT:
+      alert("Det tog för lång tid för användaren att svara.");
+      break;
+    case error.UNKNOWN_ERROR:
+      alert("oops något oväntat hände.");
+      break;
+  }
+}
