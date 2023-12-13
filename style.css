@@ -102,14 +102,14 @@ main {
 
 .quick-link-header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
 .add-btn {
   display: flex;
-  align-content: center;
   font-size: xx-large;
+  margin-left: 10px;
   cursor: pointer;
   width: 1em;
   height: auto;
