@@ -24,9 +24,19 @@
           <!-- Quick links card -->
           <!-- Använd MAP för att lägga till - behövs API -->
           <article class="card quick-links" id="quickLinksArticle">
-            <h3>Quick Links</h3>
+            <div class="quick-link-header" id="quickLinkHeader">
+              <h3>Quick Links</h3>
+              <!-- Ruta för att lägga till URL -->
+              <img
+                class="add-btn"
+                id="addButton"
+                onclick="openModal()"
+                src="assets/img_346745-307336275.png"
+              />
+            </div>
+
             <!--  Visa den sparade URLen i en p-tagg -->
-            <div class="quick-card-div" id="quickCardDiv"></div>
+            <!-- <div class="quick-card-div" id="quickCardDiv"></div> -->
             <div class="quick-add-div" id="quickCardDiv">
               <!-- Modal som gör det möjligt för användare att lägga till snabblänkar-->
               <div id="myModal" class="modal">
@@ -44,10 +54,6 @@
                   </button>
                 </div>
               </div>
-              <!-- Ruta för att lägga till URL -->
-              <button class="add-btn" id="addButton" onclick="openModal()">
-                Lägg till snabblänk
-              </button>
             </div>
           </article>
 
