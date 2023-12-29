@@ -42,23 +42,21 @@
               <!-- Modalens innehåll - url -->
               <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <label for="urlInput">Enter URL:</label>
+                <label for="urlInput">Ange Titel</label>
+                <input type="text" id="title" placeholder="Ange titel" />
+                <label for="urlInput">Ange Hemsida:</label>
                 <input
                   type="text"
                   id="urlInput"
-                  placeholder="https://example.com"
+                  placeholder="https://exampel.se"
                 />
-                <button onclick="insertURL()">
-                  Lägg till snabblänk till dashboard
-                </button>
+                <button onclick="insertURL()">Spara snabblänk</button>
               </div>
             </div>
           </div>
         </article>
-
         <!-- Weather forecast card -->
         <!--  google geolocation api - ska ligga i localstorage -->
-        <!-- Extra utmaning, användaren ska kunna söka efter  -->
         <article class="card-weather-article" id="weatherArticle">
           <div class="weather-forecast-header" id="weatherForecastHeader">
             <h3>Weather forecast</h3>
@@ -75,7 +73,7 @@
         <!-- Calendar card -->
         <article class="card-electricity" id="electricityArticle">
           <div class="electricity-header" id="electricityHeader">
-            <h3>Elctricity prices in Sweden</h3>
+            <h3>Elpriset just nu</h3>
             <p id="price1"></p>
             <p id="price2"></p>
             <p id="price3"></p>
@@ -86,7 +84,7 @@
         <!-- texten ska sparas i localstorage -->
         <article class="card-expand notes-area" id="notesArticle">
           <div class="notes-header" id="notesHeader">
-            <h3>Notes</h3>
+            <h3>Anteckningar</h3>
             <!-- Ruta för att lägga till URL -->
             <img
               class="add-note"
@@ -98,12 +96,19 @@
           <div class="all-notes" id="allNotes"></div>
         </article>
       </section>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <div class="fetchImagesWrapper">
+          <button class="getImagesButton">Get An Image</button>
+        </div>
+        <div class="imageDisplayWrapper" style="margin-top: 25px">
+          <img
+            class="imageToDisplay"
+            style="width: 550px; height: 350px; border: 1px solid black"
+          />
+        </div>
+      </div>
     </main>
-    <footer>
-      <button class="generate-background" id="generateBackground">
-        Generera ny bakgrund
-      </button>
-    </footer>
+    <footer></footer>
     <script src="./scripts/background.js"></script>
     <script src="./scripts/editableH1.js"></script>
     <script src="./scripts/quicklinks.js"></script>

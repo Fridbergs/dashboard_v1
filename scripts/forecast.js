@@ -1,13 +1,26 @@
-async function getApiKey() {
+const wApi = "3653d921ebc80597604e07c2f06fa3b6";
+
+// let lat = browserlocation.coords.latitude;
+// console.log(lat);
+
+// let long = browserlocation.coords.longitude;
+// console.log(long);
+
+//URL Path
+const urlPath = `https://api.openweathermap.org/data/2.5/weather?lat=57.17045815854641&lon=17.01533275182965&units=metric&appid=${wApi}`;
+
+console.log(urlPath);
+
+async function getWeather() {
   try {
     //Använder fetch för att hämta data från variables.json
-    const response = await fetch("variables.json");
+    const response = await fetch(urlPath);
 
     //Kontrollerar om förfrågan var framgångsrik - Har vi kontakt med variables.json?
     if (response.ok) {
       //Konverterar datan i variables.json till json
       const variables = await response.json();
-      const weatherApi = variables["allApis"].weatherApi;
+      console.log(variables);
     } else {
       console.log(`HTTP error message: ${response.status}`);
     }
@@ -15,8 +28,9 @@ async function getApiKey() {
     console.error("Linus Error fetching API key:", error);
   }
 }
+getWeather();
 
-//Hämtar användarens location direkt när window is loaded
+//Hämtar användarens location direkt när window objektet har laddats
 window.addEventListener("load", getLocation);
 
 function getLocation() {
@@ -27,13 +41,14 @@ function getLocation() {
   }
 }
 
-// This function is the success callback for getCurrentPosition.
+// Funktion för att hitta browserns location
 function showPosition(browserlocation) {
-  // Extract latitude and longitude from the position object.
-  var lat = browserlocation.coords.latitude;
-  var long = browserlocation.coords.longitude;
+  // Hittar latitude and longitude från positions objektet
+  let lat = browserlocation.coords.latitude;
+  let long = browserlocation.coords.longitude;
 
   // Display an alert with the user's latitude and longitude.
+  //alert(
   console.log(
     "Latitude: " +
       lat +
@@ -41,6 +56,7 @@ function showPosition(browserlocation) {
       long +
       "\nDessa koordinatoer används för att se vädret där du befinner dig"
   );
+  return [lat, long];
 }
 
 // Denna function tar hand om eventuella fel - förser användaren med felmeddelanden.

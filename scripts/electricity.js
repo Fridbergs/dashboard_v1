@@ -26,22 +26,22 @@ async function getData() {
     }
     //Hitta varje enskild data att appenda
     const dataSe4 = await responseSe4.json();
-    const latestPriceSe4 = dataSe4.slice(4)[0]?.SEK_per_kWh;
+    const latestPriceSe4 = dataSe4.slice(0)[0]?.SEK_per_kWh;
     const formattedPriceSe4 = parseFloat(latestPriceSe4).toFixed(3); // Ser till så att det endast visas två decimaler
 
     //Hitta varje enskild data att appenda
     const dataSe3 = await responseSe3.json();
-    const latestPriceSe3 = dataSe3.slice(3)[0]?.SEK_per_kWh;
+    const latestPriceSe3 = dataSe3.slice(0)[0]?.SEK_per_kWh;
     const formattedPriceSe3 = parseFloat(latestPriceSe3).toFixed(3); // Ser till så att det endast visas två decimaler
 
     //Hitta varje enskild data att appenda
     const dataSe2 = await responseSe2.json();
-    const latestPriceSe2 = dataSe2.slice(2)[0]?.SEK_per_kWh;
+    const latestPriceSe2 = dataSe2.slice(0)[0]?.SEK_per_kWh;
     const formattedPriceSe2 = parseFloat(latestPriceSe2).toFixed(3); // Ser till så att det endast visas två decimaler
 
     //Hitta varje enskild data att appenda
     const dataSe1 = await responseSe1.json();
-    const latestPriceSe1 = dataSe1.slice(1)[0]?.SEK_per_kWh;
+    const latestPriceSe1 = dataSe1.slice(0)[0]?.SEK_per_kWh;
     const formattedPriceSe1 = parseFloat(latestPriceSe1).toFixed(3); // Ser till så att det endast visas två decimaler
 
     const priceSe1 = document.getElementById("price1");
