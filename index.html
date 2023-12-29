@@ -17,7 +17,7 @@
       </div>
     </nav>
     <main>
-      <!-- Måste vara en H1 som användaren kan avnända -->
+      <!-- Måste vara en H1 som användaren kan använda -->
       <h1 class="dashboard-name" id="dashboardName"></h1>
       <section class="quick-links_weather_forecast-section">
         <!-- Quick links card -->
@@ -25,7 +25,7 @@
         <article class="card-quick-links" id="quickLinksArticle">
           <div class="quick-link-header" id="quickLinkHeader">
             <h3>Quick Links</h3>
-            <!-- Ruta för att lägga till URL -->
+            <!-- Knapp för att öppna modal och lägga till URL -->
             <img
               class="add-site"
               id="addButton"
@@ -33,10 +33,10 @@
               src="assets/img_346745-307336275.png"
             />
           </div>
-
           <!--  Visa den sparade URLen i en p-tagg -->
-          <!-- <div class="quick-card-div" id="quickCardDiv"></div> -->
+
           <div class="quick-add-div" id="quickCardDiv">
+            <!-- Detta är modalen som ska öppnas -->
             <!-- Modal som gör det möjligt för användare att lägga till snabblänkar-->
             <div id="myModal" class="modal">
               <!-- Modalens innehåll - url -->
@@ -77,16 +77,13 @@
           <div class="electricity-header" id="electricityHeader">
             <h3>Elctricity price</h3>
             <p>Elområde 1</p>
+            <p id="price1"></p>
             <p>Elområde 2</p>
+            <p id="price2"></p>
             <p>Elområde 3</p>
+            <p id="price3"></p>
             <p>Elområde 4</p>
-            <!-- Ruta för att lägga till URL -->
-            <img
-              class="add-electricity"
-              id="addElectricity"
-              onclick="openModal()"
-              src="assets/img_346745-307336275.png"
-            />
+            <p id="price4"></p>
           </div>
         </article>
         <!-- Notes card -->
@@ -111,12 +108,12 @@
         Generera ny bakgrund
       </button>
     </footer>
-    <script src="scripts/background.js"></script>
-    <script src="scripts/editableH1.js"></script>
-    <script src="scripts/quicklinks.js"></script>
-    <script src="scripts/timeanddate.js"></script>
-    <script src="scripts/forecast.js"></script>
-    <script src="scripts/electricity.js"></script>
-    <script src="scripts/notes.js"></script>
+    <script src="./scripts/background.js"></script>
+    <script src="./scripts/editableH1.js"></script>
+    <script src="./scripts/quicklinks.js"></script>
+    <script src="./scripts/timeanddate.js"></script>
+    <script src="./scripts/forecast.js"></script>
+    <script src="./scripts/electricity.js"></script>
+    <script src="./scripts/notes.js"></script>
   </body>
 </html>

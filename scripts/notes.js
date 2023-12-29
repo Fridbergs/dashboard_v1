@@ -23,7 +23,7 @@ function createNote() {
 
   // Skapa en "Delete Note" knapp
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = " ";
+  deleteButton.textContent = "X";
   deleteButton.addEventListener("click", function () {
     deleteNote(newNote, textareaId);
   });

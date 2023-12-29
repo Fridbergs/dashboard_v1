@@ -1,66 +1,89 @@
-//Får kontakt med modalen som ska öppna ett fönster för att skriva in URL
+// Array for storing saved quick links
+let quickLinks = [];
+
+// Get references to modal elements
 const modal = document.getElementById("myModal");
 
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
 function openModal() {
   modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
 function closeModal() {
   modal.style.display = "none";
 }
 
-// When the user clicks outside of the modal, close it
 window.onclick = function (event) {
   if (event.target === modal) {
     closeModal();
   }
 };
 
-// Insert URL function (you can modify this based on your needs)
 function insertURL() {
-  let urlInput = document.getElementById("urlInput").value;
+  let urlInput = document.getElementById("urlInput");
+  let urlValue = urlInput.value.trim();
 
-  //Spara URL till LocalStorage
-  localStorage.setItem("savedURL", urlInput);
+  if (urlValue !== "") {
+    // Save URL to local storage
+    quickLinks.push(urlValue);
+    localStorage.setItem("quickLinks", JSON.stringify(quickLinks));
 
-  // Perform any action with the URL, such as updating a text field or an iframe
-  console.log("URL inserted: " + urlInput);
+    // Display the saved URL on the page
+    appendSavedURL(urlValue);
 
-  //Appendar URLen till en p-tagg
-  appendSavedURL(urlInput);
+    // Clear the input field
+    urlInput.value = "";
 
-  closeModal(); // Close the modal after inserting the URL
+    closeModal(); // Close the modal after inserting the URL
+  }
 }
 
-//Array för att lagra sparade snabblänkar
-let quickLinks = [];
-
-//få kontakt med lägg till länk knapp
-const addLink = document.getElementById("addButton");
-addLink.addEventListener("click", () => {
-  console.log("Houston vi har kontakt");
-});
-
-//Kollar LocalStorage för att se om det finns någon URL som ska sparas i DOMen
 document.addEventListener("DOMContentLoaded", function () {
-  let savedURL = localStorage.getItem("savedURL");
-  if (savedURL) {
-    console.log("Retrieved saved URL from local storage: " + savedURL);
+  // Retrieve saved quick links from local storage
+  let savedQuickLinks = localStorage.getItem("quickLinks");
+  if (savedQuickLinks) {
+    quickLinks = JSON.parse(savedQuickLinks);
 
-    //Lägg till den sparade URLen till domen
-    appendSavedURL(savedURL);
+    // Display saved quick links on the page
+    quickLinks.forEach((url) => {
+      appendSavedURL(url);
+    });
   }
 });
 
-//Funktion som skickar den sparade URLen till en div
 function appendSavedURL(url) {
   let quickCardDiv = document.getElementById("quickCardDiv");
-  let newParahraphTag = document.createElement("p");
-  newParahraphTag.textContent = url;
-  quickCardDiv.appendChild(newParahraphTag);
+  let newParagraphTag = document.createElement("p");
+  newParagraphTag.textContent = url;
+
+  // Add a delete button for each saved URL
+  let deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", function () {
+    deleteSavedURL(url);
+  });
+
+  newParagraphTag.appendChild(deleteButton);
+  quickCardDiv.appendChild(newParagraphTag);
+}
+
+function deleteSavedURL(url) {
+  // Remove the URL from the quickLinks array
+  quickLinks = quickLinks.filter((link) => link !== url);
+
+  // Update local storage with the modified quickLinks array
+  localStorage.setItem("quickLinks", JSON.stringify(quickLinks));
+
+  // Clear the displayed quick links and re-display the updated list
+  clearQuickLinks();
+  quickLinks.forEach((savedURL) => {
+    appendSavedURL(savedURL);
+  });
+
+  // Open the modal after deletion
+  openModal();
+}
+
+function clearQuickLinks() {
+  let quickCardDiv = document.getElementById("quickCardDiv");
+  quickCardDiv.innerHTML = ""; // Clear the content of the container
 }
