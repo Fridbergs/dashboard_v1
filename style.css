@@ -22,7 +22,7 @@ nav {
 
 main {
   height: auto;
-  width: 80%;
+  width: 85%;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -46,7 +46,7 @@ footer {
   margin-top: 1rem;
   margin-bottom: 1rem;
   align-items: center;
-  background-color: rgba(217, 183, 183, 0.9);
+  background-color: rgba(217, 183, 183, 0.65);
   width: 17em;
   height: 3rem;
   border: 2px solid;
@@ -94,7 +94,7 @@ footer {
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  gap: 1.5em;
+  gap: 1em;
   flex-wrap: wrap;
 }
 
@@ -102,7 +102,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 25em;
+  height: 20em;
   width: 23%;
   max-width: 25em;
   min-width: 15em;
