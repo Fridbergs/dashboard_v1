@@ -5,6 +5,7 @@
 
 body {
   margin: 0;
+  height: 101%;
   width: auto;
   display: flex;
   align-items: center;
@@ -20,13 +21,22 @@ nav {
 }
 
 main {
-  max-height: auto;
+  height: auto;
   width: 80%;
   overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 25px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: center;
+  margin-top: 5em;
+  width: 100%;
+  height: auto;
 }
 
 /* Date and time section */
@@ -51,7 +61,7 @@ main {
   font-size: large;
   font-weight: 800;
   font-size: xx-large;
-  padding: 10px 10px 10px 10px;
+  /* padding: 10px 10px 10px 10px; */
 }
 
 .content-section {
@@ -65,6 +75,7 @@ main {
 /* Editable H1 section */
 .dashboard-name {
   color: brown;
+  margin-bottom: 0;
   font-weight: 900;
   font-size: 4rem;
   cursor: pointer;
@@ -101,10 +112,6 @@ main {
   border: none;
   border-radius: 15px;
   background-color: rgba(176, 169, 169, 0.9);
-}
-
-.action-button {
-  background-color: aqua;
 }
 
 /* Quick link section */
@@ -247,9 +254,10 @@ main {
 /* Div for generating a background */
 .fetchImagesWrapper {
   display: flex;
+  height: 10em;
   flex-direction: column;
-  margin-top: 10em;
-  gap: 0.5em;
+  justify-content: start;
+  gap: 1em;
 }
 .queryInput {
   width: auto;
