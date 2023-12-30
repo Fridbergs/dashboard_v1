@@ -34,7 +34,7 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-self: center;
-  margin-top: 5em;
+  margin-top: 2em;
   width: 100%;
   height: auto;
 }
@@ -254,7 +254,7 @@ footer {
 /* Div for generating a background */
 .fetchImagesWrapper {
   display: flex;
-  height: 10em;
+  height: 5em;
   flex-direction: column;
   justify-content: start;
   gap: 1em;
