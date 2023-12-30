@@ -8,7 +8,6 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- Backgrunden som vara flexibel id* math.random för att slumpa backgrund-->
     <nav>
       <!-- Date objectet i JS -->
       <div class="info-div" id="infoDiv">
@@ -17,27 +16,21 @@
       </div>
     </nav>
     <main>
-      <!-- Måste vara en H1 som användaren kan använda -->
       <h1 class="dashboard-name" id="dashboardName"></h1>
-      <section class="quick-links_weather_forecast-section">
+      <section class="cardsSection">
         <!-- Quick links card -->
         <!-- Använd MAP för att lägga till - behövs API -->
-        <article class="card-quick-links" id="quickLinksArticle">
+        <article class="card card-quick-links" id="quickLinksArticle">
           <div class="quick-link-header" id="quickLinkHeader">
             <h3>Quick Links</h3>
             <!-- Knapp för att öppna modal och lägga till URL -->
-            <img
-              class="add-site"
-              id="addButton"
-              onclick="openModal()"
-              src="assets/img_346745-307336275.png"
-            />
+
+            <img />
           </div>
           <!--  Visa den sparade URLen i en p-tagg -->
 
           <div class="quick-add-div" id="quickCardDiv">
-            <!-- Detta är modalen som ska öppnas -->
-            <!-- Modal som gör det möjligt för användare att lägga till snabblänkar-->
+            <!-- Detta är modalen som ska öppnas -Modal som gör det möjligt för användare att lägga till snabblänkar-->
             <div id="myModal" class="modal">
               <!-- Modalens innehåll - url -->
               <div class="modal-content">
@@ -50,28 +43,43 @@
                   id="urlInput"
                   placeholder="https://exampel.se"
                 />
-                <button onclick="insertURL()">Spara snabblänk</button>
+                <button class="action-button modalButton" onclick="insertURL()">
+                  Spara snabblänk
+                </button>
               </div>
             </div>
           </div>
-        </article>
-        <!-- Weather forecast card -->
-        <!--  google geolocation api - ska ligga i localstorage -->
-        <article class="card-weather-article" id="weatherArticle">
-          <div class="weather-forecast-header" id="weatherForecastHeader">
-            <h3>Weather forecast</h3>
-            <!-- Ruta för att lägga till URL -->
-            <img
-              class="add-location"
-              id="addLocation"
-              src="assets/img_346745-307336275.png"
-            />
+          <div class="addDiv addLinkDiv">
+            <button
+              class="action-button add-site"
+              id="addButton"
+              onclick="openModal()"
+            >
+              Add
+            </button>
           </div>
         </article>
-      </section>
-      <section class="stocks_notes-section">
+        <!-- Weather forecast card -->
+        <article class="card card-weather-article" id="weatherArticle">
+          <div class="weather-forecast-header" id="weatherForecastHeader">
+            <h3>Current Weather</h3>
+          </div>
+          <div class="weatherCard">
+            <span id="locationName"></span>
+            <span id="weatherData"></span>
+          </div>
+          <div class="locationDiv" id="locationDiv">
+            <input
+              type="text"
+              class="placeQueryInput"
+              id="placeQueryInput"
+              placeholder="Sök efter plats"
+            />
+            <button class="action-button getPlaceButton">FG</button>
+          </div>
+        </article>
         <!-- Calendar card -->
-        <article class="card-electricity" id="electricityArticle">
+        <article class="card card-electricity" id="electricityArticle">
           <div class="electricity-header" id="electricityHeader">
             <h3>Elpriset just nu</h3>
             <p id="price1"></p>
@@ -82,26 +90,25 @@
         </article>
         <!-- Notes card -->
         <!-- texten ska sparas i localstorage -->
-        <article class="card-expand notes-area" id="notesArticle">
+        <article class="card card-expand notes-area" id="notesArticle">
           <div class="notes-header" id="notesHeader">
             <h3>Anteckningar</h3>
-            <!-- Ruta för att lägga till URL -->
-            <img
-              class="add-note"
-              id="addNoteButton"
-              onclick="createNote()"
-              src="assets/img_346745-307336275.png"
-            />
           </div>
-          <div class="all-notes" id="allNotes"></div>
+          <div class="all-notes" id="allNotes">
+            <textarea class="notesTextarea" id="notesTextarea"></textarea>
+          </div>
         </article>
       </section>
     </main>
-    <footer>
-      <div class="fetchImagesWrapper">
-        <button class="getImagesButton">Generera ny bakgrund</button>
-      </div>
-    </footer>
+    <div class="fetchImagesWrapper">
+      <input
+        type="text"
+        id="queryInput"
+        class="queryInput"
+        placeholder="Vad vill du se bilder på?"
+      />
+      <button class="getImagesButton">Generera ny bakgrund</button>
+    </div>
     <script src="./scripts/background.js"></script>
     <script src="./scripts/editableH1.js"></script>
     <script src="./scripts/quicklinks.js"></script>

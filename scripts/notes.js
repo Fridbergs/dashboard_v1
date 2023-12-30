@@ -1,99 +1,20 @@
-const notesHeader = document.getElementById("notesHeader");
-const addNote = document.getElementById("addNoteButton");
-// Ladda sparade anteckningar när sidan laddas
-window.onload = loadNotes;
+let notesTextarea = document.getElementById("allNotes");
 
-// Funktion för att skapa en ny anteckning (textarea)
-function createNote() {
-  const newNote = document.createElement("div");
-  newNote.classList.add("createdDiv");
+// Add a keydown event listener to the textarea
+notesTextarea.addEventListener("keydown", function (event) {
+  // Check if the pressed key is the Tab key
+  if (event.key === "Tab") {
+    // Prevent the default Tab behavior (focus switching)
+    event.preventDefault();
 
-  // Skapa en ny textarea
-  const newTextarea = document.createElement("textarea");
-  newTextarea.placeholder = " ";
-
-  // Generera ett slumpmässigt ID för textarea
-  const textareaId = randomNoteId();
-  newTextarea.id = `noteTextarea_${textareaId}`;
-
-  // Lägg till händelselyssnare för att spara i local storage när du klickar utanför textarea
-  newTextarea.addEventListener("blur", function () {
-    saveNoteToLocalStorage(textareaId, newTextarea.value);
-  });
-
-  // Skapa en "Delete Note" knapp
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "X";
-  deleteButton.addEventListener("click", function () {
-    deleteNote(newNote, textareaId);
-  });
-
-  // Lägg till textarea och "Delete Note" knapp till div
-  newNote.appendChild(newTextarea);
-  newNote.appendChild(deleteButton);
-
-  // Lägg till div till "allNotes"
-  document.getElementById("allNotes").appendChild(newNote);
-
-  // Fokusera på den nya textarean
-  newTextarea.focus();
-}
-
-// Funktion för att ta bort en anteckning
-function deleteNote(noteDiv, textareaId) {
-  // Ta bort anteckningen från local storage
-  const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-  const updatedNotes = savedNotes.filter((note) => note.id !== textareaId);
-  localStorage.setItem("savedNotes", JSON.stringify(updatedNotes));
-
-  // Ta bort anteckningen från DOM
-  noteDiv.remove();
-}
-
-// Funktion för att hämta sparade anteckningar från local storage
-function loadNotes() {
-  const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-
-  // Loop through saved notes and create divs with textareas
-  for (const note of savedNotes) {
-    createNoteDiv(note.id, note.content);
+    // Save the content of the textarea (you can customize this part)
+    saveNotes(notesTextarea.value);
   }
-}
+});
 
-// Funktion för att spara en anteckning i local storage
-function saveNoteToLocalStorage(textareaId, noteContent) {
-  // Hämta befintliga anteckningar från local storage
-  const savedNotes = JSON.parse(localStorage.getItem("savedNotes")) || [];
-
-  // Lägg till den nya anteckningen till arrayen
-  savedNotes.push({ id: textareaId, content: noteContent });
-
-  // Spara hela arrayen till local storage
-  localStorage.setItem("savedNotes", JSON.stringify(savedNotes));
-}
-
-// Funktion för att skapa en div med en textarea och en "Delete Note" knapp
-function createNoteDiv(textareaId, noteContent) {
-  const newNote = document.createElement("div");
-  newNote.classList.add("createdDiv");
-
-  const newTextarea = document.createElement("textarea");
-  newTextarea.id = `noteTextarea_${textareaId}`;
-  newTextarea.value = noteContent;
-
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", function () {
-    deleteNote(newNote, textareaId);
-  });
-
-  newNote.appendChild(newTextarea);
-  newNote.appendChild(deleteButton);
-
-  document.getElementById("allNotes").appendChild(newNote);
-}
-
-// Funktion för att generera ett slumpmässigt ID för anteckningen
-function randomNoteId() {
-  return Math.floor(Math.random() * 1000 * (Math.random() * 5000));
+// Function to save the notes (customize this function according to your needs)
+function saveNotes(notes) {
+  // Example: Save notes to local storage
+  localStorage.setItem("userNotes", notes);
+  console.log("Notes saved:", notes);
 }

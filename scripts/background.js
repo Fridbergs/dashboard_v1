@@ -1,15 +1,15 @@
-// scripts/background.js
+document.addEventListener("DOMContentLoaded", async () => {
+  let queryWord; // Inget standardvärde har blivit angettt
 
-document.addEventListener("DOMContentLoaded", () => {
-  const unsplashAccessKey = "7Ov5vewtA_HqGfVs-hDfvY_hTBwu6X-nIB5kcmgF5IA";
-  const queryWord = "london";
-
-  const imageSrc = `https://api.unsplash.com/search/photos?query=${queryWord}&client_id=${unsplashAccessKey}`;
+  const unsplashAccessKey = await getApiKey(); // Hämtar API-nyckeln från variables.json
 
   const getImagesButton = document.querySelector(".getImagesButton");
+  const queryInput = document.getElementById("queryInput");
 
   getImagesButton.addEventListener("click", async () => {
     try {
+      // Hämtar värdet från input field på sidan
+      queryWord = queryInput.value || "random"; // Använder "random" som default sökparameter
       let randomImage = await getNewImage();
       setBodyBackground(randomImage);
       saveBackgroundImage(randomImage);
@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error fetching image:", error);
     }
   });
-
-  // On page load, retrieve the background image from localStorage and set it
+  //Hämtar bakgrunden som blibit sparad i localstorage och sätter den som bakgrund även efter refresh eller stängning/öppning av browser
   const savedBackground = getSavedBackgroundImage();
   if (savedBackground) {
     setBodyBackground(savedBackground);
@@ -27,7 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   async function getNewImage() {
     try {
       let randomNumber = Math.floor(Math.random() * 10);
-      const response = await fetch(imageSrc);
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos?query=${queryWord}&client_id=${unsplashAccessKey}`
+      );
       const data = await response.json();
       let allImages = data.results[randomNumber];
       return allImages.urls.regular;
@@ -50,4 +51,28 @@ document.addEventListener("DOMContentLoaded", () => {
   function getSavedBackgroundImage() {
     return localStorage.getItem("backgroundImage");
   }
+
+  async function getApiKey() {
+    try {
+      const response = await fetch("variables.json");
+
+      if (response.ok) {
+        const variables = await response.json();
+        const unsplashAccessKey = variables["allApis"].unsplashAccessKey;
+
+        if (unsplashAccessKey) {
+          return unsplashAccessKey;
+        } else {
+          throw new Error("Unsplash API key not found in variables.json");
+        }
+      } else {
+        throw new Error(`HTTP error message: ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error fetching API key:", error);
+      throw error;
+    }
+  }
 });
+
+const imageSrc = `https://api.unsplash.com/search/photos?query=${queryWord}&client_id=${unsplashAccessKey}`;

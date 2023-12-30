@@ -1,12 +1,11 @@
 * {
   box-sizing: border-box;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "roboto", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 body {
   margin: 0;
   width: auto;
-  border: 2px solid;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -37,7 +36,7 @@ main {
   margin-top: 1rem;
   margin-bottom: 1rem;
   align-items: center;
-  background-color: rgb(176, 169, 169);
+  background-color: rgba(217, 183, 183, 0.9);
   opacity: 100%;
   width: 500px;
   height: 5rem;
@@ -69,7 +68,7 @@ main {
   font-weight: 900;
   font-size: 4rem;
   cursor: pointer;
-  border-bottom: 1px dashed #000;
+  border-bottom: none;
   display: inline-block;
 }
 
@@ -81,129 +80,122 @@ main {
   text-decoration: none;
 }
 
-/* Section for Quicklinks & Weather forecase */
-
-.quick-links_weather_forecast-section {
+/* Section for all cards */
+.cardsSection {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 60%;
-  gap: 25px;
-}
-
-.card-quick-links {
-  text-align: center;
-  height: auto;
-  width: 60%;
-  max-width: 600px;
-  min-height: 400px;
-  max-height: 400px;
-  border: 2px solid;
-  border-radius: 15px;
-  background-color: rgb(176, 169, 169);
-  color: black;
-  font-size: large;
-  font-weight: 800;
-}
-
-.card-weather-article {
-  text-align: center;
-  height: auto;
   width: 100%;
-  max-width: 600px;
-  min-height: 400px;
-  max-height: 400px;
-  border: 2px solid;
-  border-radius: 15px;
-  background-color: rgb(176, 169, 169);
-  color: black;
-  font-size: large;
-  font-weight: 800;
-}
-
-/* Section for Notes and Stocks */
-.stocks_notes-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 60%;
   gap: 25px;
-  margin-bottom: 25px;
 }
 
-.card-electricity {
+.card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   height: auto;
-  width: 50%;
+  width: 25%;
   max-width: 600px;
   min-height: 400px;
   max-height: 400px;
   border: 2px solid;
   border-radius: 15px;
-  background-color: rgb(176, 169, 169);
-  color: black;
-  font-size: large;
-  font-weight: 800;
+  background-color: rgba(176, 169, 169, 0.9);
 }
 
-.card-expand {
-  text-align: center;
-  height: auto;
-  width: 100%;
-  max-width: 600px;
-  min-height: 400px;
-  max-height: auto;
-  border: 2px solid;
-  border-radius: 15px;
-  background-color: rgb(176, 169, 169);
-  color: black;
-  font-size: large;
-  font-weight: 800;
+.action-button {
+  background-color: aqua;
 }
 
 /* Quick link section */
+.card-quick-links {
+  display: flex;
+  text-align: center;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
+
 .quick-link-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.add-site {
+.addLinkDiv {
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 0 2em 0 2em;
   display: flex;
-  font-size: xx-large;
-  margin-left: 10px;
-  cursor: pointer;
-  width: 1em;
-  height: auto;
-  transition: transform 0.5s ease;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 5px;
 }
-.add-site:hover {
-  transform: rotate(45deg);
+
+.add-site {
+  height: auto;
+  width: auto;
+  padding: auto;
+  border-radius: 15px;
+  background-color: bisque;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 /* Weather forecast section */
+.card-weather-article {
+  display: flex;
+  text-align: center;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
 .weather-forecast-header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.add-location {
-  display: flex;
-  font-size: xx-large;
-  margin-left: 10px;
-  cursor: pointer;
-  width: 1em;
-  height: auto;
-  transition: transform 0.5s ease;
+.weatherCard {
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 1em;
+  margin: 0 2em 0 2em;
 }
-.add-location:hover {
-  transform: rotate(45deg);
+/* Weather Place Query Div */
+.locationDiv {
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 0 2em 0 2em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 5px;
+}
+.placeQueryInput {
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+}
+
+.getPlaceButton {
+  height: auto;
+  padding: auto;
+  border-radius: 15px;
+  width: 3em;
+  background-color: bisque;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 /* Electricity section */
+.card-electricity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
 
 .electricity-header {
   display: flex;
@@ -213,19 +205,6 @@ main {
   height: 100%;
 }
 
-.add-electricity {
-  display: flex;
-  font-size: xx-large;
-  margin-left: 10px;
-  cursor: pointer;
-  width: 1em;
-  height: auto;
-  transition: transform 0.5s ease;
-}
-.add-electricity:hover {
-  transform: rotate(45deg);
-}
-
 /* Notes section */
 .notes-header {
   display: flex;
@@ -233,57 +212,48 @@ main {
   align-items: center;
 }
 
-.add-note {
-  display: flex;
-  font-size: xx-large;
-  margin-left: 10px;
-  cursor: pointer;
-  width: 1em;
-  height: auto;
-  transition: transform 0.5s ease;
-}
-.add-note:hover {
-  transform: rotate(45deg);
-}
 .all-notes {
   display: flex;
-  flex-direction: column;
-}
-.all-notes,
-button {
-  margin: 10px 0px;
-}
-
-textarea {
-  background-color: rgb(230, 236, 236);
-  width: 90%;
-  max-width: 90%;
-  height: 80px;
-  max-height: 150px;
-  border: none;
-  outline: auto;
-  background-color: bisque;
-  resize: none;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  overflow: auto;
-}
-
-/*  Footer Section */
-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 10dvh;
+  height: 100%;
 }
-.generate-background {
+
+.notesTextarea {
+  height: 95%;
+  max-height: 25em;
+  background-color: bisque;
+  width: 95%;
+  resize: none;
+  border-radius: 1em;
+  font-family: inherit;
+  font-size: 19px;
+  color: inherit;
+  overflow: auto;
+  border: none;
+  outline: auto;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+}
+/* Div for generating a background */
+.fetchImagesWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10em;
+}
+.queryInput {
+  width: auto;
+  height: 3em;
+  border: none;
+  border-radius: 10px;
+}
+
+.getImagesButton {
   padding: 15px 15px;
   border-radius: 15px;
   width: 15rem;
   background-color: bisque;
   cursor: pointer;
-  margin-bottom: 20px;
 }
