@@ -64,9 +64,15 @@
           <div class="weather-forecast-header" id="weatherForecastHeader">
             <h3>Vädret just nu</h3>
           </div>
-          <div class="weatherCard">
+          <div class="weatherCard browser-location" id="weatherCard">
             <span id="locationName"></span>
             <span id="weatherData"></span>
+          </div>
+
+          <!-- Weather forecast card for search query location -->
+          <div class="weatherCard search-location" id="weatherCard2">
+            <span id="searchLocationName"></span>
+            <span id="searchWeatherData"></span>
           </div>
           <div class="locationDiv" id="locationDiv">
             <input
@@ -75,7 +81,7 @@
               id="placeQueryInput"
               placeholder="Hur är vädret i?"
             />
-            <button class="action-button getPlaceButton">SÖK</button>
+            <button class="getPlaceButton" id="getPlaceButton">SÖK</button>
           </div>
         </article>
         <!-- Calendar card -->

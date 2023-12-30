@@ -156,10 +156,12 @@ main {
 }
 .weatherCard {
   border: 2px solid black;
+  background-color: aliceblue;
   border-radius: 15px;
   padding: 1em;
   margin: 0 2em 0 2em;
 }
+
 /* Weather Place Query Div */
 .locationDiv {
   border-radius: 15px;
