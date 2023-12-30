@@ -98,7 +98,7 @@ main {
   max-width: 600px;
   min-height: 400px;
   max-height: 400px;
-  border: 2px solid;
+  border: none;
   border-radius: 15px;
   background-color: rgba(176, 169, 169, 0.9);
 }
@@ -123,7 +123,6 @@ main {
 }
 
 .addLinkDiv {
-  border: 2px solid black;
   border-radius: 15px;
   margin: 0 2em 0 2em;
   display: flex;
@@ -133,13 +132,12 @@ main {
 }
 
 .add-site {
-  height: auto;
-  width: auto;
-  padding: auto;
+  height: 3em;
+  width: 100%;
+  border: none;
   border-radius: 15px;
   background-color: bisque;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 /* Weather forecast section */
@@ -150,6 +148,7 @@ main {
   font-size: large;
   font-weight: 800;
 }
+
 .weather-forecast-header {
   display: flex;
   justify-content: center;
@@ -163,7 +162,6 @@ main {
 }
 /* Weather Place Query Div */
 .locationDiv {
-  border: 2px solid black;
   border-radius: 15px;
   margin: 0 2em 0 2em;
   display: flex;
@@ -173,25 +171,26 @@ main {
 }
 .placeQueryInput {
   width: 80%;
+  height: 3em;
   border: none;
   border-radius: 10px;
+  text-align: center;
 }
 
 .getPlaceButton {
-  height: auto;
+  height: 3em;
+  width: 5em;
   padding: auto;
+  border: none;
   border-radius: 15px;
-  width: 3em;
   background-color: bisque;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 /* Electricity section */
 .card-electricity {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
   color: black;
   font-size: large;
   font-weight: 800;
@@ -200,9 +199,15 @@ main {
 .electricity-header {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   height: 100%;
+  justify-content: center;
+}
+
+.electricityData {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 /* Notes section */
@@ -242,16 +247,19 @@ main {
   display: flex;
   flex-direction: column;
   margin-top: 10em;
+  gap: 0.5em;
 }
 .queryInput {
   width: auto;
   height: 3em;
   border: none;
   border-radius: 10px;
+  text-align: center;
 }
 
 .getImagesButton {
   padding: 15px 15px;
+  border: none;
   border-radius: 15px;
   width: 15rem;
   background-color: bisque;

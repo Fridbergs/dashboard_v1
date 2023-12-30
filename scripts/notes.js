@@ -1,20 +1,17 @@
-let notesTextarea = document.getElementById("allNotes");
+document.addEventListener("DOMContentLoaded", function () {
+  const notesTextarea = document.getElementById("notesTextarea");
 
-// Add a keydown event listener to the textarea
-notesTextarea.addEventListener("keydown", function (event) {
-  // Check if the pressed key is the Tab key
-  if (event.key === "Tab") {
-    // Prevent the default Tab behavior (focus switching)
-    event.preventDefault();
+  // Use the 'input' event to capture changes in the textarea content
+  notesTextarea.addEventListener("input", function () {
+    // Save the updated content to local storage
+    localStorage.setItem("notes", this.value);
+  });
 
-    // Save the content of the textarea (you can customize this part)
-    saveNotes(notesTextarea.value);
-  }
+  // Load saved notes from local storage on page load
+  window.addEventListener("load", function () {
+    const savedNotes = localStorage.getItem("notes");
+    if (savedNotes) {
+      notesTextarea.value = savedNotes;
+    }
+  });
 });
-
-// Function to save the notes (customize this function according to your needs)
-function saveNotes(notes) {
-  // Example: Save notes to local storage
-  localStorage.setItem("userNotes", notes);
-  console.log("Notes saved:", notes);
-}

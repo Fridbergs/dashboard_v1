@@ -22,7 +22,7 @@
         <!-- Använd MAP för att lägga till - behövs API -->
         <article class="card card-quick-links" id="quickLinksArticle">
           <div class="quick-link-header" id="quickLinkHeader">
-            <h3>Quick Links</h3>
+            <h3>Snabblänkar</h3>
             <!-- Knapp för att öppna modal och lägga till URL -->
 
             <img />
@@ -55,14 +55,14 @@
               id="addButton"
               onclick="openModal()"
             >
-              Add
+              Lägg till Snabblänk
             </button>
           </div>
         </article>
         <!-- Weather forecast card -->
         <article class="card card-weather-article" id="weatherArticle">
           <div class="weather-forecast-header" id="weatherForecastHeader">
-            <h3>Current Weather</h3>
+            <h3>Vädret just nu</h3>
           </div>
           <div class="weatherCard">
             <span id="locationName"></span>
@@ -73,19 +73,22 @@
               type="text"
               class="placeQueryInput"
               id="placeQueryInput"
-              placeholder="Sök efter plats"
+              placeholder="Hur är vädret i?"
             />
-            <button class="action-button getPlaceButton">FG</button>
+            <button class="action-button getPlaceButton">SÖK</button>
           </div>
         </article>
         <!-- Calendar card -->
         <article class="card card-electricity" id="electricityArticle">
           <div class="electricity-header" id="electricityHeader">
             <h3>Elpriset just nu</h3>
-            <p id="price1"></p>
-            <p id="price2"></p>
-            <p id="price3"></p>
-            <p id="price4"></p>
+
+            <div class="electricityData" id="electricityData">
+              <p id="price1"></p>
+              <p id="price2"></p>
+              <p id="price3"></p>
+              <p id="price4"></p>
+            </div>
           </div>
         </article>
         <!-- Notes card -->
@@ -95,7 +98,11 @@
             <h3>Anteckningar</h3>
           </div>
           <div class="all-notes" id="allNotes">
-            <textarea class="notesTextarea" id="notesTextarea"></textarea>
+            <textarea
+              class="notesTextarea"
+              id="notesTextarea"
+              placeholder="Skriv dina anteckninar här - spara genom att trycka på tab"
+            ></textarea>
           </div>
         </article>
       </section>
