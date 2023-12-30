@@ -17,7 +17,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("Error fetching image:", error);
     }
   });
-  //Hämtar bakgrunden som blibit sparad i localstorage och sätter den som bakgrund även efter refresh eller stängning/öppning av browser
+
+  // Event listener for Enter key press on the queryInput
+  queryInput.addEventListener("keydown", async (event) => {
+    if (event.key === "Enter") {
+      // Simulate a click on the getImagesButton
+      getImagesButton.click();
+    }
+  });
+
+  // Hämtar bakgrunden som blibit sparad i localstorage och sätter den som bakgrund även efter refresh eller stängning/öppning av browser
   const savedBackground = getSavedBackgroundImage();
   if (savedBackground) {
     setBodyBackground(savedBackground);
@@ -74,5 +83,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 });
-
-const imageSrc = `https://api.unsplash.com/search/photos?query=${queryWord}&client_id=${unsplashAccessKey}`;

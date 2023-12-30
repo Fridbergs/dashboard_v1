@@ -24,7 +24,7 @@ async function getBrowserLocationWeather() {
       const latestWeather = data.main.temp;
 
       // Display browser location weather information
-      locationNameElement.textContent = `Vädret i ${data.name} är`;
+      locationNameElement.textContent = `Temperaturen i ${data.name} är`;
       weatherDataElement.textContent = latestWeather
         ? `${latestWeather}°`
         : "N/A";
@@ -74,10 +74,10 @@ function performSearch() {
     .then((response) => response.json())
     .then((data) => {
       if (data.cod === "404") {
-        alert("City not found. Please enter a valid city name.");
+        alert("Stad inte hittad, skriv in en giltig plats");
       } else {
         // Update the UI with weather information for the search query location
-        searchLocationNameElement.textContent = `Det är ${data.main.temp}° i ${data.name} nu.`;
+        searchLocationNameElement.textContent = `Det är ${data.main.temp}° i ${data.name} nu`;
       }
     })
     .catch((error) => {
