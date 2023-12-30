@@ -42,7 +42,7 @@ footer {
 /* Date and time section */
 .info-div {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 1rem;
   margin-bottom: 1rem;
   align-items: center;
@@ -61,7 +61,6 @@ footer {
   font-size: large;
   font-weight: 800;
   font-size: xx-large;
-  /* padding: 10px 10px 10px 10px; */
 }
 
 .content-section {
@@ -111,7 +110,7 @@ footer {
   max-height: 400px;
   border: none;
   border-radius: 15px;
-  background-color: rgba(176, 169, 169, 0.9);
+  background-color: rgba(212, 180, 180, 0.85);
 }
 
 /* Quick link section */
@@ -254,7 +253,7 @@ footer {
 /* Div for generating a background */
 .fetchImagesWrapper {
   display: flex;
-  height: 5em;
+  height: 6em;
   flex-direction: column;
   justify-content: start;
   gap: 1em;
