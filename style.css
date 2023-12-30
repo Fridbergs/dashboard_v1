@@ -46,7 +46,7 @@ footer {
   margin-top: 1rem;
   margin-bottom: 1rem;
   align-items: center;
-  background-color: rgba(217, 183, 183, 0.65);
+  background-color: rgba(217, 183, 183, 0.75);
   width: 17em;
   height: 3rem;
   border: 2px solid;
@@ -263,7 +263,7 @@ footer {
   resize: none;
   border-radius: 1em;
   font-family: inherit;
-  font-size: 17px;
+  font-size: 15px;
   color: inherit;
   overflow: auto;
   border: 3px solid rgb(246, 210, 165);
