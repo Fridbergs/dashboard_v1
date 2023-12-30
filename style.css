@@ -126,6 +126,10 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(239, 217, 217, 0.3);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-transform: uppercase;
 }
 
 .addLinkDiv {
@@ -142,7 +146,7 @@ footer {
   width: 100%;
   border: none;
   border-radius: 15px;
-  background-color: bisque;
+  background-color: rgb(249, 230, 208, 0.6);
   cursor: pointer;
 }
 
@@ -159,10 +163,14 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(239, 217, 217, 0.3);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-transform: uppercase;
 }
 .weatherCard {
   border: 2px solid black;
-  background-color: aliceblue;
+  background-color: rgb(249, 230, 208, 0.6);
   border-radius: 15px;
   padding: 1em;
   margin: 0 2em 0 2em;
@@ -182,6 +190,7 @@ footer {
   height: 3em;
   border: none;
   border-radius: 10px;
+  background-color: rgb(249, 246, 246, 0.7);
   text-align: center;
 }
 
@@ -191,7 +200,7 @@ footer {
   padding: auto;
   border: none;
   border-radius: 15px;
-  background-color: bisque;
+  background-color: rgb(249, 230, 208, 0.6);
   cursor: pointer;
 }
 
@@ -207,8 +216,11 @@ footer {
 .electricity-header {
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
+  background-color: rgba(239, 217, 217, 0.3);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-transform: uppercase;
 }
 
 .electricityData {
@@ -219,10 +231,21 @@ footer {
 }
 
 /* Notes section */
+.notes-area {
+  display: flex;
+  text-align: center;
+  color: black;
+  font-size: large;
+  font-weight: 800;
+}
 .notes-header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(239, 217, 217, 0.3);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-transform: uppercase;
 }
 
 .all-notes {
@@ -237,7 +260,7 @@ footer {
 .notesTextarea {
   height: 95%;
   max-height: 25em;
-  background-color: bisque;
+  background-color: rgb(249, 230, 208, 0.6);
   width: 95%;
   resize: none;
   border-radius: 1em;
@@ -245,8 +268,8 @@ footer {
   font-size: 19px;
   color: inherit;
   overflow: auto;
-  border: none;
-  outline: auto;
+  border: 3px solid rgb(246, 210, 165);
+  outline: none;
   padding-left: 0.5em;
   padding-top: 0.5em;
 }
@@ -263,6 +286,8 @@ footer {
   height: 3em;
   border: none;
   border-radius: 10px;
+  background-color: rgb(249, 246, 246, 0.7);
+  color: rgb(58, 50, 50);
   text-align: center;
 }
 
@@ -271,6 +296,6 @@ footer {
   border: none;
   border-radius: 15px;
   width: 15rem;
-  background-color: bisque;
+  background-color: rgb(249, 230, 208, 0.85);
   cursor: pointer;
 }
