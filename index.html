@@ -23,32 +23,31 @@
         <article class="card card-quick-links" id="quickLinksArticle">
           <div class="quick-link-header" id="quickLinkHeader">
             <h3>Snabblänkar</h3>
-            <!-- Knapp för att öppna modal och lägga till URL -->
-
-            <img />
           </div>
           <!--  Visa den sparade URLen i en p-tagg -->
-
           <div class="quick-add-div" id="quickCardDiv">
             <!-- Detta är modalen som ska öppnas -Modal som gör det möjligt för användare att lägga till snabblänkar-->
             <div id="myModal" class="modal">
               <!-- Modalens innehåll - url -->
-              <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <label for="urlInput">Ange Titel</label>
-                <input type="text" id="title" placeholder="Ange titel" />
-                <label for="urlInput">Ange Hemsida:</label>
-                <input
-                  type="text"
-                  id="urlInput"
-                  placeholder="https://exampel.se"
-                />
-                <button class="action-button modalButton" onclick="insertURL()">
-                  Spara snabblänk
-                </button>
+              <div class="modalContainer">
+                <div class="modal-content">
+                  <label for="urlInput">Skriv in URL:</label>
+                  <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://exampel.se"
+                  />
+
+                  <label for="titleInput">Ange Titel:</label>
+                  <input type="text" id="titleInput" placeholder="Ange titel" />
+                  <button class="saveUrlButton" onclick="insertURL()">
+                    Spara snabblänk
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          <!-- Div med Knapp för att öppna modal och lägga till URL -->
           <div class="addDiv addLinkDiv">
             <button
               class="action-button add-site"
