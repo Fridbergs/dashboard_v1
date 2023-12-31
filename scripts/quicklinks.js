@@ -34,6 +34,15 @@ function insertURL() {
   titleLink.href = url;
   titleLink.target = "_blank"; // Open in a new tab
 
+  // Create an image element for the favicon
+  let faviconImg = document.createElement("img");
+  faviconImg.className = "favicon";
+  faviconImg.src = `${url}/favicon.ico`;
+  faviconImg.onerror = function () {
+    // If there's an error loading the favicon, set a default favicon or leave it empty
+    faviconImg.src = "default-favicon.png"; // Set your default favicon or use an empty string
+  };
+
   // Create a button for deleting the quick link
   let deleteButton = document.createElement("button");
   deleteButton.textContent = "X";
@@ -47,7 +56,8 @@ function insertURL() {
     };
   })(title, url);
 
-  // Append the title link and delete button to the quick link div
+  // Append the title link, favicon, and delete button to the quick link div
+  newQuickLink.appendChild(faviconImg);
   newQuickLink.appendChild(titleLink);
   newQuickLink.appendChild(deleteButton);
 
@@ -115,6 +125,14 @@ function displayQuickLinks() {
     titleLink.href = link.url;
     titleLink.target = "_blank";
 
+    let faviconImg = document.createElement("img");
+    faviconImg.className = "favicon";
+    faviconImg.src = `${link.url}/favicon.ico`;
+    faviconImg.onerror = function () {
+      // If there's an error loading the favicon, set a default favicon or leave it empty
+      faviconImg.src = "default-favicon.png"; // Set your default favicon or use an empty string
+    };
+
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "X";
     deleteButton.onclick = (function (title, url) {
@@ -129,7 +147,7 @@ function displayQuickLinks() {
         }
       };
     })(link.title, link.url);
-
+    newQuickLink.appendChild(faviconImg);
     newQuickLink.appendChild(titleLink);
     newQuickLink.appendChild(deleteButton);
 
