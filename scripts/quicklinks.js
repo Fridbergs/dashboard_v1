@@ -52,8 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function appendSavedURL(url) {
   let quickCardDiv = document.getElementById("quickCardDiv");
-  let newParagraphTag = document.createElement("p");
-  newParagraphTag.textContent = url;
+
+  // Create an <a> element
+  let newAnchorTag = document.createElement("a");
+  newAnchorTag.textContent = url;
+  newAnchorTag.href = url;
+  newAnchorTag.target = "_blank"; // Open link in a new tab (optional)
 
   // Add a delete button for each saved URL
   let deleteButton = document.createElement("button");
@@ -62,8 +66,12 @@ function appendSavedURL(url) {
     deleteSavedURL(url);
   });
 
-  newParagraphTag.appendChild(deleteButton);
-  quickCardDiv.appendChild(newParagraphTag);
+  // Append the <a> element and the delete button to the container
+  quickCardDiv.appendChild(newAnchorTag);
+  quickCardDiv.appendChild(deleteButton);
+
+  // Add a line break for better spacing (optional)
+  quickCardDiv.appendChild(document.createElement("br"));
 }
 
 function deleteSavedURL(url) {
