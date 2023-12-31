@@ -102,7 +102,8 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 20em;
+  min-height: 24em;
+  height: auto;
   width: 23%;
   max-width: 25em;
   min-width: 15em;
@@ -142,6 +143,7 @@ footer {
 .add-site {
   height: 3em;
   width: 100%;
+  margin-top: 2em;
   border: none;
   border-radius: 15px;
   background-color: rgb(249, 230, 208, 0.6);
@@ -304,6 +306,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1em;
   gap: 0.5em;
 }
 .quick-link-item {
