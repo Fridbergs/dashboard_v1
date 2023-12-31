@@ -41,7 +41,12 @@
                   />
 
                   <label for="titleInput">Ange Titel:</label>
-                  <input type="text" id="titleInput" placeholder="Ange titel" />
+                  <input
+                    type="text"
+                    id="titleInput"
+                    maxlength="19"
+                    placeholder="Ange titel"
+                  />
                   <button
                     class="saveUrlButton"
                     id="saveUrlButton"
@@ -69,24 +74,27 @@
           <div class="weather-forecast-header" id="weatherForecastHeader">
             <h3>Väder</h3>
           </div>
-          <div class="weatherCard browser-location" id="weatherCard">
-            <span id="locationName"></span>
-            <span id="weatherData"></span>
-          </div>
+          <div class="weatherCardContainer" id="weatherCardContainer">
+            <div class="weatherCard browser-location" id="weatherCard">
+              <span id="locationName"></span>
+              <span id="weatherData"></span>
+            </div>
 
-          <!-- Weather forecast card for search query location -->
-          <div class="weatherCard search-location" id="weatherCard2">
-            <span id="searchLocationName"></span>
-            <span id="searchWeatherData"></span>
-          </div>
-          <div class="locationDiv" id="locationDiv">
-            <input
-              type="text"
-              class="placeQueryInput"
-              id="placeQueryInput"
-              placeholder="Hur är vädret i?"
-            />
-            <button class="getPlaceButton" id="getPlaceButton">SÖK</button>
+            <!-- Weather forecast card for search query location -->
+            <div class="weatherCard search-location" id="weatherCard2">
+              <span id="searchLocationName"></span>
+              <span id="searchWeatherData"></span>
+            </div>
+
+            <div class="locationDiv" id="locationDiv">
+              <input
+                type="text"
+                class="placeQueryInput"
+                id="placeQueryInput"
+                placeholder="Hur är vädret i?"
+              />
+              <button class="getPlaceButton" id="getPlaceButton">SÖK</button>
+            </div>
           </div>
         </article>
         <!-- Calendar card -->
