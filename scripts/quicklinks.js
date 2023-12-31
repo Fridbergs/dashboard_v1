@@ -1,97 +1,59 @@
-// Array for storing saved quick links
-let quickLinks = [];
-
-// Get references to modal elements
-const modal = document.getElementById("myModal");
-
+// Function to open the modal
 function openModal() {
-  modal.style.display = "block";
+  document.getElementById("myModal").style.display = "block";
 }
 
+// Function to close the modal
 function closeModal() {
-  modal.style.display = "none";
+  document.getElementById("myModal").style.display = "none";
 }
 
-window.onclick = function (event) {
-  if (event.target === modal) {
-    closeModal();
-  }
-};
-
+// Function to insert a new quick link
 function insertURL() {
-  let urlInput = document.getElementById("urlInput");
-  let urlValue = urlInput.value.trim();
+  // Get the values from the input fields
+  var url = document.getElementById("urlInput").value;
+  var title = document.getElementById("titleInput").value;
 
-  if (urlValue !== "") {
-    // Save URL to local storage
-    quickLinks.push(urlValue);
-    localStorage.setItem("quickLinks", JSON.stringify(quickLinks));
-
-    // Display the saved URL on the page
-    appendSavedURL(urlValue);
-
-    // Clear the input field
-    urlInput.value = "";
-
-    closeModal(); // Close the modal after inserting the URL
+  // Check if the URL starts with "http://" or "https://", if not, add "http://"
+  if (!url.startsWith("http://") && !url.startsWith("https://")) {
+    url = "http://" + url;
   }
-}
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Retrieve saved quick links from local storage
-  let savedQuickLinks = localStorage.getItem("quickLinks");
-  if (savedQuickLinks) {
-    quickLinks = JSON.parse(savedQuickLinks);
+  // Create a new div for the quick link
+  var newQuickLink = document.createElement("div");
+  newQuickLink.className = "quick-link-item";
 
-    // Display saved quick links on the page
-    quickLinks.forEach((url) => {
-      appendSavedURL(url);
-    });
-  }
-});
+  // Create an anchor element for the title
+  var titleLink = document.createElement("a");
+  titleLink.textContent = title;
+  titleLink.href = url;
+  titleLink.target = "_blank"; // Open in a new tab
 
-function appendSavedURL(url) {
-  let quickCardDiv = document.getElementById("quickCardDiv");
-
-  // Create an <a> element
-  let newAnchorTag = document.createElement("a");
-  newAnchorTag.textContent = url;
-  newAnchorTag.href = url;
-  newAnchorTag.target = "_blank"; // Open link in a new tab (optional)
-
-  // Add a delete button for each saved URL
-  let deleteButton = document.createElement("button");
+  // Create a button for deleting the quick link
+  var deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", function () {
-    deleteSavedURL(url);
-  });
+  deleteButton.onclick = function () {
+    // Remove the quick link when the delete button is clicked
+    newQuickLink.remove();
+  };
 
-  // Append the <a> element and the delete button to the container
-  quickCardDiv.appendChild(newAnchorTag);
-  quickCardDiv.appendChild(deleteButton);
+  // Append the title link and delete button to the quick link div
+  newQuickLink.appendChild(titleLink);
+  newQuickLink.appendChild(deleteButton);
 
-  // Add a line break for better spacing (optional)
-  quickCardDiv.appendChild(document.createElement("br"));
+  // Append the new quick link to the quickLinksStored div
+  document.getElementById("quickLinksStored").appendChild(newQuickLink);
+
+  // Clear the input fields after adding the quick link
+  document.getElementById("urlInput").value = "";
+  document.getElementById("titleInput").value = "";
+
+  // Close the modal
+  closeModal();
 }
 
-function deleteSavedURL(url) {
-  // Remove the URL from the quickLinks array
-  quickLinks = quickLinks.filter((link) => link !== url);
-
-  // Update local storage with the modified quickLinks array
-  localStorage.setItem("quickLinks", JSON.stringify(quickLinks));
-
-  // Clear the displayed quick links and re-display the updated list
-  clearQuickLinks();
-  quickLinks.forEach((savedURL) => {
-    appendSavedURL(savedURL);
-  });
-
-  // Open the modal after deletion
-  openModal();
-}
-
-function clearQuickLinks() {
-  let quickCardDiv = document.getElementById("quickCardDiv");
-  quickCardDiv.innerHTML = ""; // Clear the content of the container
-}
+// Attach event listeners after the DOM is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector(".addButton").addEventListener("click", openModal);
+  document.querySelector("#saveUrlButton").addEventListener("click", insertURL);
+});

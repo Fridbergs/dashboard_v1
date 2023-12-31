@@ -25,6 +25,8 @@
             <h3>Snabblänkar</h3>
           </div>
           <!--  Visa den sparade URLen i en p-tagg -->
+          <div class="quickLinksStored" id="quickLinksStored"></div>
+
           <div class="quick-add-div" id="quickCardDiv">
             <!-- Detta är modalen som ska öppnas -Modal som gör det möjligt för användare att lägga till snabblänkar-->
             <div id="myModal" class="modal">
@@ -40,7 +42,11 @@
 
                   <label for="titleInput">Ange Titel:</label>
                   <input type="text" id="titleInput" placeholder="Ange titel" />
-                  <button class="saveUrlButton" onclick="insertURL()">
+                  <button
+                    class="saveUrlButton"
+                    id="saveUrlButton"
+                    onclick="insertURL()"
+                  >
                     Spara snabblänk
                   </button>
                 </div>
