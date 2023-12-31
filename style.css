@@ -299,3 +299,47 @@ footer {
   background-color: rgb(249, 230, 208, 0.85);
   cursor: pointer;
 }
+
+.quickLinksStored {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+.quick-link-item {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  background-color: rgba(212, 180, 180);
+  padding: 0.5em;
+  border-radius: 7px;
+}
+
+.quick-link-item > button {
+  border: none;
+  width: 2.5em;
+  height: 100%;
+  padding: 0.1em;
+  border-radius: 7px;
+  background-color: rgb(249, 230, 208);
+  cursor: pointer;
+}
+.quick-link-item > button:hover {
+  border: none;
+  width: 2.5em;
+  height: 100%;
+  padding: 0.1em;
+  border-radius: 7px;
+  background-color: rgb(241, 147, 147);
+  cursor: pointer;
+}
+
+.quick-link-item > a {
+  text-decoration-line: none;
+  width: 70%;
+  background-color: rgb(249, 230, 208);
+  color: rgb(58, 50, 50);
+  border-radius: 7px;
+  padding: 0.5em;
+}
