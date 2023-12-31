@@ -1,17 +1,23 @@
-const newh1Text = localStorage.getItem("dashboarNameText");
-//
-const editableDashboardName = document.getElementById("dashboardName");
-//Använder originaltexten eller nya texten
-editableDashboardName.innerText = newh1Text || "Click to edit me!";
+const storedDashboardName = localStorage.getItem("dashboarNameText");
+const defaultDashboardName = "Click to edit me!";
 
-//Måste lyssna på h1 elementet
+// Use the stored text or the default text if it doesn't exist
+const newh1Text = storedDashboardName || defaultDashboardName;
+
+const editableDashboardName = document.getElementById("dashboardName");
+
+// Set the text of the element
+editableDashboardName.innerText = newh1Text;
+
+// Must listen for click on the h1 element
 editableDashboardName.addEventListener("click", function () {
   editableDashboardName.contentEditable = true;
   editableDashboardName.focus();
 });
 
-//Måste göra något som indikerar att du inte längre har fokus på h1
+// Must do something to indicate that you no longer have focus on h1
 editableDashboardName.addEventListener("blur", function () {
-  localStorage.setItem("dashboarNameText", editableDashboardName.innerText);
+  const updatedDashboardName = editableDashboardName.innerText;
+  localStorage.setItem("dashboarNameText", updatedDashboardName);
   editableDashboardName.contentEditable = false;
 });
