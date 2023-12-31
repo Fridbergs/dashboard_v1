@@ -1,5 +1,5 @@
 const storedDashboardName = localStorage.getItem("dashboarNameText");
-const defaultDashboardName = "...Title";
+const defaultDashboardName = "...";
 
 // Use the stored text or the default text if it doesn't exist
 let newh1Text = storedDashboardName || defaultDashboardName;
@@ -20,7 +20,7 @@ editableDashboardName.addEventListener("blur", function () {
   let updatedDashboardName = editableDashboardName.innerText;
 
   // Check if the updated name has at least 1 character
-  if (updatedDashboardName.length === 3) {
+  if (updatedDashboardName.length === 0) {
     updatedDashboardName = defaultDashboardName;
   }
 
