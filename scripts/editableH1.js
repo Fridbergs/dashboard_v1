@@ -1,5 +1,5 @@
 const storedDashboardName = localStorage.getItem("dashboarNameText");
-const defaultDashboardName = "Click to edit me!";
+const defaultDashboardName = "...";
 
 // Use the stored text or the default text if it doesn't exist
 const newh1Text = storedDashboardName || defaultDashboardName;
