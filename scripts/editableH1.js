@@ -1,8 +1,8 @@
 const storedDashboardName = localStorage.getItem("dashboarNameText");
-const defaultDashboardName = "...";
+const defaultDashboardName = "...Title";
 
 // Use the stored text or the default text if it doesn't exist
-const newh1Text = storedDashboardName || defaultDashboardName;
+let newh1Text = storedDashboardName || defaultDashboardName;
 
 const editableDashboardName = document.getElementById("dashboardName");
 
@@ -17,7 +17,16 @@ editableDashboardName.addEventListener("click", function () {
 
 // Must do something to indicate that you no longer have focus on h1
 editableDashboardName.addEventListener("blur", function () {
-  const updatedDashboardName = editableDashboardName.innerText;
+  let updatedDashboardName = editableDashboardName.innerText;
+
+  // Check if the updated name has at least 1 character
+  if (updatedDashboardName.length === 3) {
+    updatedDashboardName = defaultDashboardName;
+  }
+
   localStorage.setItem("dashboarNameText", updatedDashboardName);
   editableDashboardName.contentEditable = false;
+
+  // Update the displayed text
+  editableDashboardName.innerText = updatedDashboardName;
 });

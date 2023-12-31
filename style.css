@@ -78,6 +78,7 @@ footer {
   cursor: pointer;
   border-bottom: none;
   display: inline-block;
+  cursor: pointer;
 }
 
 #dashboard-name:hover {
