@@ -1,6 +1,6 @@
 const todayDate = new Date().getDate();
 
-const todayMonth = new Date().getMonth() + 1;
+const todayMonth = String(new Date().getMonth() + 1).padStart(2, "0");
 
 const todayYear = new Date().getFullYear();
 
@@ -16,17 +16,22 @@ async function getData() {
     const responseSe2 = await fetch(apiUrlSe2);
     const responseSe1 = await fetch(apiUrlSe1);
 
-    if (
-      !responseSe1.ok ||
-      !responseSe2.ok ||
-      !responseSe3.ok ||
-      !responseSe4.ok
-    ) {
-      throw new Error(`HTTP error! Status: ${response.status} `);
+    if (!responseSe1.ok) {
+      throw new Error(`HTTP error! Status: ${responseSe1.status}`);
     }
+    if (!responseSe2.ok) {
+      throw new Error(`HTTP error! Status: ${responseSe2.status}`);
+    }
+    if (!responseSe3.ok) {
+      throw new Error(`HTTP error! Status: ${responseSe3.status}`);
+    }
+    if (!responseSe4.ok) {
+      throw new Error(`HTTP error! Status: ${responseSe4.status}`);
+    }
+
     //Hitta varje enskild data att appenda
     const dataSe4 = await responseSe4.json();
-    const latestPriceSe4 = dataSe4.slice(0)[0]?.SEK_per_kWh;
+    const latestPriceSe4 = dataSe4.slice(1)[1]?.SEK_per_kWh;
     const formattedPriceSe4 = parseFloat(latestPriceSe4).toFixed(3); // Ser till så att det endast visas två decimaler
 
     //Hitta varje enskild data att appenda
