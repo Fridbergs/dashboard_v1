@@ -61,7 +61,7 @@ async function getData() {
       ${formattedPriceSe2} öre/kWh`;
       priceSe3.textContent = ` Södra Mellansverige: 
       ${formattedPriceSe3} öre/kWh`;
-      priceSe4.textContent = ` Södra Sverige: 
+      priceSe4.textContent = ` SSödra Sverige: 
       ${formattedPriceSe4} öre/kWh`;
     } else {
       console.error("Element not found");
