@@ -14,10 +14,28 @@ weatherDataElement.textContent = "Loading..."; // Initial loading message
 searchLocationNameElement.textContent = "";
 searchWeatherDataElement.textContent = "";
 
+// Funktion för att hämta användarens plats och uppdatera väderdata
+function updateWeatherWithCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(
+    function (position) {
+      // Uppdaterar URL Path med användarens plats
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const browserLocationUrlPath = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${wApi}`;
+
+      // Anropa getBrowserLocationWeather med den nya URL Path
+      getBrowserLocationWeather(browserLocationUrlPath);
+    },
+    function (error) {
+      console.error("Error getting location:", error);
+    }
+  );
+}
+
 // Function to get browser location weather
-async function getBrowserLocationWeather() {
+async function getBrowserLocationWeather(url) {
   try {
-    const response = await fetch(browserLocationUrlPath);
+    const response = await fetch(url);
 
     if (response.ok) {
       const data = await response.json();
@@ -37,7 +55,7 @@ async function getBrowserLocationWeather() {
 }
 
 // Call the getBrowserLocationWeather function on window load
-window.addEventListener("load", getBrowserLocationWeather);
+window.addEventListener("load", updateWeatherWithCurrentLocation);
 
 // Event listener for the search input
 const placeQueryInput = document.getElementById("placeQueryInput");
