@@ -55,10 +55,10 @@ async function getData() {
     const priceSe4 = document.getElementById("price4");
 
     if ((priceSe1, priceSe2, priceSe3, priceSe4)) {
-      priceSe1.textContent = ` SE1: ${formattedPriceSe1} öre/kWh`;
-      priceSe2.textContent = ` SE2: ${formattedPriceSe2} öre/kWh`;
-      priceSe3.textContent = ` SE3: ${formattedPriceSe3} öre/kWh`;
-      priceSe4.textContent = ` SE4: ${formattedPriceSe4} öre/kWh`;
+      priceSe1.textContent = ` Norra Sverige: ${formattedPriceSe1} öre/kWh`;
+      priceSe2.textContent = ` Norra Mellansverige: ${formattedPriceSe2} öre/kWh`;
+      priceSe3.textContent = ` Södra Mellansverige: ${formattedPriceSe3} öre/kWh`;
+      priceSe4.textContent = ` Södra Sverige: ${formattedPriceSe4} öre/kWh`;
     } else {
       console.error("Element not found");
     }
