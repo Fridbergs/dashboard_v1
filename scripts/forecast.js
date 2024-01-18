@@ -9,8 +9,8 @@ const weatherDataElement = document.getElementById("weatherData");
 const searchLocationNameElement = document.getElementById("searchLocationName");
 const searchWeatherDataElement = document.getElementById("searchWeatherData");
 
-locationNameElement.textContent = "Din plats"; // You can customize this text
-weatherDataElement.textContent = "Loading..."; // Initial loading message
+locationNameElement.textContent = "Temperaturen hos dig är"; // You can customize this text
+weatherDataElement.textContent = "..."; // Initial loading message
 searchLocationNameElement.textContent = "";
 searchWeatherDataElement.textContent = "";
 
@@ -61,7 +61,7 @@ window.addEventListener("load", updateWeatherWithCurrentLocation);
 const placeQueryInput = document.getElementById("placeQueryInput");
 
 placeQueryInput.addEventListener("keyup", function (event) {
-  // Check if the Enter key is pressed (key code 13)
+  // Check if the Enter key is pressed
   if (event.keyCode === 13) {
     performSearch();
   }
