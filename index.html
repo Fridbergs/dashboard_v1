@@ -20,73 +20,63 @@
         <div class="date" id="dateDiv"></div>
       </div>
       <!-- Weather forecast card -->
-
       <div class="info-div-2" id="weatherCard">
         <span id="weatherData"></span>
       </div>
+      <!-- Add link card -->
+      <!-- Div med Knapp för att öppna modal och lägga till URL -->
+      <button class="info-div-3" id="addButton" onclick="openModal()">
+        Add Quicklink
+      </button>
     </nav>
-    <main>
-      <h1 class="dashboard-name" id="dashboardName"></h1>
-      <section class="cardsSection">
-        <!-- Quick links card -->
-        <!-- Använd MAP för att lägga till - behövs API -->
-        <article class="card card-quick-links" id="quickLinksArticle">
-          <div class="quick-link-header" id="quickLinkHeader">
-            <h3>Snabblänkar</h3>
-          </div>
-          <!--  Visa den sparade URLen i en p-tagg -->
-          <div class="quickLinksStored" id="quickLinksStored"></div>
+    <h1 class="dashboard-name" id="dashboardName"></h1>
+    <!-- Quick links card -->
+    <article class="border-quick-links" id="quickLinksArticle">
+      <div class="quick-link-header" id="quickLinkHeader"></div>
+      <!--  Visa den sparade URLen i en p-tagg -->
+      <div class="quickLinksStored" id="quickLinksStored"></div>
+      <div class="quick-add-div" id="quickCardDiv">
+        <!-- Detta är modalen som ska öppnas -Modal som gör det möjligt för användare att lägga till snabblänkar-->
+        <div id="myModal" class="modal">
+          <!-- Modalens innehåll - url -->
+          <div class="modalContainer">
+            <div class="modal-content">
+              <label for="urlInput">Skriv in URL:</label>
+              <input
+                type="text"
+                id="urlInput"
+                placeholder="https://exampel.se"
+              />
 
-          <div class="quick-add-div" id="quickCardDiv">
-            <!-- Detta är modalen som ska öppnas -Modal som gör det möjligt för användare att lägga till snabblänkar-->
-            <div id="myModal" class="modal">
-              <!-- Modalens innehåll - url -->
-              <div class="modalContainer">
-                <div class="modal-content">
-                  <label for="urlInput">Skriv in URL:</label>
-                  <input
-                    type="text"
-                    id="urlInput"
-                    placeholder="https://exampel.se"
-                  />
-
-                  <label for="titleInput">Ange Titel:</label>
-                  <input
-                    type="text"
-                    id="titleInput"
-                    maxlength="19"
-                    placeholder="Ange titel"
-                  />
-                  <button
-                    class="saveUrlButton"
-                    id="saveUrlButton"
-                    onclick="insertURL()"
-                  >
-                    Spara snabblänk
-                  </button>
-                </div>
-              </div>
+              <label for="titleInput">Ange Titel:</label>
+              <input
+                type="text"
+                id="titleInput"
+                maxlength="19"
+                placeholder="Ange titel"
+              />
+              <button
+                class="saveUrlButton"
+                id="saveUrlButton"
+                onclick="insertURL()"
+              >
+                Spara snabblänk
+              </button>
             </div>
           </div>
-          <!-- Div med Knapp för att öppna modal och lägga till URL -->
-          <div class="addDiv addLinkDiv">
-            <button
-              class="action-button add-site"
-              id="addButton"
-              onclick="openModal()"
-            >
-              Lägg till Snabblänk
-            </button>
-          </div>
-        </article>
+        </div>
+      </div>
+    </article>
+    <main>
+      <section class="cardsSection">
         <!-- Trending card -->
-        <article class="card notes-area" id="notesArticle">
+        <article class="card" id="notesArticle">
           <div class="notes-header" id="notesHeader">
             <h3>Trending</h3>
           </div>
         </article>
         <!-- Notes card -->
-        <article class="card notes-area" id="notesArticle">
+        <article class="card" id="notesArticle">
           <div class="notes-header" id="notesHeader">
             <h3>Anteckningar</h3>
           </div>

@@ -14,7 +14,7 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   height: auto;
   width: 95%;
@@ -118,88 +118,12 @@ footer {
   justify-content: space-between;
   min-height: 24em;
   height: auto;
-  width: 23%;
+  width: 40%;
   max-width: 25em;
   min-width: 15em;
   border: none;
   border-radius: 15px;
   background-color: rgba(212, 180, 180, 0.85);
-}
-
-/* Quick link section */
-.card-quick-links {
-  display: flex;
-  text-align: center;
-  color: black;
-  font-size: large;
-  font-weight: 800;
-}
-
-.quick-link-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(239, 217, 217, 0.3);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  text-transform: uppercase;
-}
-
-.addLinkDiv {
-  border-radius: 15px;
-  margin: 0 2em 0 2em;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-  gap: 5px;
-}
-
-.add-site {
-  height: 3em;
-  width: 100%;
-  margin-top: 2em;
-  border: none;
-  border-radius: 15px;
-  background-color: rgb(249, 230, 208, 0.6);
-  cursor: pointer;
-}
-
-/* Weather forecast section */
-.weather-div {
-  display: flex;
-}
-.card-weather-article {
-  display: flex;
-  justify-content: start;
-  text-align: center;
-  color: black;
-  font-size: large;
-  font-weight: 800;
-}
-
-.weather-forecast-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(239, 217, 217, 0.3);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  text-transform: uppercase;
-}
-.weatherCard {
-  border: 3px solid rgb(246, 210, 165, 0.4);
-  background-color: rgb(249, 230, 208, 0.6);
-  border-radius: 15px;
-  padding: 1em;
-  margin: 0 2em 0 2em;
-}
-
-.weatherCardContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1em;
-  justify-content: space-between;
-  height: 100%;
 }
 
 /* Weather Place Query Div */
@@ -228,32 +152,6 @@ footer {
   border-radius: 15px;
   background-color: rgb(249, 230, 208, 0.6);
   cursor: pointer;
-}
-
-/* Electricity section */
-.card-electricity {
-  display: flex;
-  text-align: center;
-  color: black;
-  font-size: large;
-  font-weight: 800;
-}
-
-.electricity-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: rgba(239, 217, 217, 0.3);
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  text-transform: uppercase;
-}
-
-.electricityData {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-evenly;
 }
 
 /* Notes section */
@@ -328,12 +226,53 @@ footer {
   cursor: pointer;
 }
 
+/* Quick link section */
+.border-quick-links {
+  display: flex;
+  text-align: center;
+  color: black;
+  font-size: small;
+  font-weight: 800;
+}
+
+.addLinkDiv {
+  border-radius: 15px;
+  margin: 0 2em 0 2em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  gap: 5px;
+}
+
+.info-div-3 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  background-color: rgba(217, 183, 183, 0.75);
+  width: auto;
+  height: 3rem;
+  border: 2px solid;
+  border-radius: 15px;
+  font-size: small;
+  cursor: pointer;
+}
+.add-site {
+  height: 3em;
+  width: 25px;
+  margin-top: 2em;
+  border: none;
+  border-radius: 15px;
+  background-color: none;
+  cursor: pointer;
+}
 /* The quicklinks are store in this div */
 .quickLinksStored {
   display: flex;
-  flex-direction: column;
   align-items: center;
   margin-top: 1em;
+  margin-bottom: 1em;
   gap: 0.5em;
 }
 .quick-link-item {
