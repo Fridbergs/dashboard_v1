@@ -116,14 +116,77 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 24em;
-  height: auto;
-  width: 40%;
+  min-height: 14em;
+  max-height: 40em;
+  width: 50%;
   max-width: 25em;
   min-width: 15em;
   border: none;
   border-radius: 15px;
   background-color: rgba(212, 180, 180, 0.85);
+}
+
+/* Trending card */
+
+.categories {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgba(239, 217, 217, 0.3);
+}
+
+.category {
+  width: 100%;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background-color: rgba(212, 180, 180, 0.85);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+  font-size: small;
+}
+
+.category:hover {
+  background-color: rgba(226, 205, 205, 0.85);
+  cursor: pointer;
+}
+
+.trends {
+  max-height: 38em;
+  overflow: scroll;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+.article {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  border: 2px solid;
+  border-radius: 1em;
+  margin-bottom: 0.5em;
+}
+
+.article > h2 {
+  font-size: medium;
+  margin-bottom: 0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.article > p {
+  font-size: small;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.article > button {
+  font-size: small;
+  border: 0;
+  text-decoration: none;
+  background-color: transparent;
+  color: brown;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 
 /* Weather Place Query Div */
@@ -155,14 +218,8 @@ footer {
 }
 
 /* Notes section */
-.notes-area {
-  display: flex;
-  text-align: center;
-  color: black;
-  font-size: large;
-  font-weight: 800;
-}
-.notes-header {
+.notes-header,
+.trends-header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,6 +227,14 @@ footer {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   text-transform: uppercase;
+}
+
+.notes-area {
+  display: flex;
+  text-align: center;
+  color: black;
+  font-size: large;
+  font-weight: 800;
 }
 
 .all-notes {
@@ -278,7 +343,7 @@ footer {
 .quick-link-item {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 15em;
   align-items: center;
   padding: 0.5em;
   border-radius: 7px;

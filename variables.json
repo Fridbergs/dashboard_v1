@@ -1,6 +1,7 @@
 {
   "allApis": {
     "unsplashAccessKey": "7Ov5vewtA_HqGfVs-hDfvY_hTBwu6X-nIB5kcmgF5IA",
-    "weatherApi": "3653d921ebc80597604e07c2f06fa3b6"
+    "weatherApi": "3653d921ebc80597604e07c2f06fa3b6",
+    "xTrendsApi": "AAAAAAAAAAAAAAAAAAAAAMHfrQEAAAAASyrnHtwfJvMK8nAMO1ciPuWeHpk%3DhT0YNee4JiWDaNLKS0z43bRcaL7dUyeMsbM30cg796bCdzhpts"
   }
 }
