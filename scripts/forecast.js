@@ -9,11 +9,6 @@ const weatherDataElement = document.getElementById("weatherData");
 const searchLocationNameElement = document.getElementById("searchLocationName");
 const searchWeatherDataElement = document.getElementById("searchWeatherData");
 
-locationNameElement.textContent = "Temperaturen hos dig är"; // You can customize this text
-weatherDataElement.textContent = "..."; // Initial loading message
-searchLocationNameElement.textContent = "";
-searchWeatherDataElement.textContent = "";
-
 // Funktion för att hämta användarens plats och uppdatera väderdata
 function updateWeatherWithCurrentLocation() {
   navigator.geolocation.getCurrentPosition(
@@ -42,7 +37,6 @@ async function getBrowserLocationWeather(url) {
       const latestWeather = data.main.temp;
 
       // Display browser location weather information
-      locationNameElement.textContent = `Temperaturen i ${data.name} är`;
       weatherDataElement.textContent = latestWeather
         ? `${latestWeather}°`
         : "N/A";

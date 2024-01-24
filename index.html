@@ -9,10 +9,20 @@
   </head>
   <body>
     <nav>
+      <!-- Elpris -->
+      <div class="info-div-2" id="electricityData">
+        <p id="price4"></p>
+      </div>
+
       <!-- Date objectet i JS -->
       <div class="info-div" id="infoDiv">
         <div class="time" id="timeDiv"></div>
         <div class="date" id="dateDiv"></div>
+      </div>
+      <!-- Weather forecast card -->
+
+      <div class="info-div-2" id="weatherCard">
+        <span id="weatherData"></span>
       </div>
     </nav>
     <main>
@@ -69,48 +79,13 @@
             </button>
           </div>
         </article>
-        <!-- Weather forecast card -->
-        <article class="card card-weather-article" id="weatherArticle">
-          <div class="weather-forecast-header" id="weatherForecastHeader">
-            <h3>Väder</h3>
-          </div>
-          <div class="weatherCardContainer" id="weatherCardContainer">
-            <div class="weatherCard browser-location" id="weatherCard">
-              <span id="locationName"></span>
-              <span id="weatherData"></span>
-            </div>
-
-            <!-- Weather forecast card for search query location -->
-            <div class="weatherCard search-location" id="weatherCard2">
-              <span id="searchLocationName"></span>
-              <span id="searchWeatherData"></span>
-            </div>
-
-            <div class="locationDiv" id="locationDiv">
-              <input
-                type="text"
-                class="placeQueryInput"
-                id="placeQueryInput"
-                placeholder="Hur är vädret i?"
-              />
-              <button class="getPlaceButton" id="getPlaceButton">SÖK</button>
-            </div>
-          </div>
-        </article>
-        <!-- Calendar card -->
-        <article class="card card-electricity" id="electricityArticle">
-          <div class="electricity-header" id="electricityHeader">
-            <h3>Elpris</h3>
-          </div>
-          <div class="electricityData" id="electricityData">
-            <p id="price1"></p>
-            <p id="price2"></p>
-            <p id="price3"></p>
-            <p id="price4"></p>
+        <!-- Trending card -->
+        <article class="card notes-area" id="notesArticle">
+          <div class="notes-header" id="notesHeader">
+            <h3>Trending</h3>
           </div>
         </article>
         <!-- Notes card -->
-        <!-- texten ska sparas i localstorage -->
         <article class="card notes-area" id="notesArticle">
           <div class="notes-header" id="notesHeader">
             <h3>Anteckningar</h3>
@@ -119,7 +94,7 @@
             <textarea
               class="notesTextarea"
               id="notesTextarea"
-              placeholder="Skriv anteckninar..."
+              placeholder="Skriv anteckningar..."
             ></textarea>
           </div>
         </article>
